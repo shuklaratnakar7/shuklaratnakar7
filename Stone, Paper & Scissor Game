@@ -1,0 +1,47 @@
+import random, time
+print('Lets play stone paper scissor')
+ch={'1':'Stone','2':'Paper','3':'Scissor'}
+i=0
+pcount = 0
+ccount = 0
+while i<4:
+   print(ch)
+   P1 = input('Choose an option:\n')
+   if (P1=='1') or (P1=='2') or (P1=='3'):
+       print(f'You got', ch[P1], '\n')
+   else:
+       print('Invalid Input')
+       continue
+   time.sleep(1)
+   print("It is computer's turn now\n")
+   C1 = random.choice(list(ch.keys()))
+   time.sleep(1)
+   print(f'Computer got', ch[C1], '\n')
+   time.sleep(1)
+   if P1 == '1' and C1 == '1' or P1 == '2' and C1 == '2' or P1 == '3' and C1 == '3':
+       print('No winner: This match is draw\n')
+   elif P1 == '1' and C1 == '2':
+       print('Whoops! Computer Won this game. Better luck next time\n')
+       ccount+=1
+   elif P1 == '1' and C1 == '3':
+       print('Yippie! You Won!\n')
+       pcount+=1
+   elif P1 == '2' and C1 == '1':
+       print('Yippie! You Won!\n')
+       pcount += 1
+   elif P1 == '2' and C1 == '3':
+       print('Whoops! Computer Won this game. Better luck next time\n')
+       ccount += 1
+   elif P1 == '3' and C1 == '1':
+       print('Whoops! Computer Won this game. Better luck next time :(\n')
+       ccount += 1
+   elif P1 == '3' and C1 == '2':
+       print('Yippie! You Won!\n')
+       pcount += 1
+   i+=1
+if pcount>ccount:
+   print('You Win')
+elif pcount==ccount:
+   print('Iss Game ka Koi Winner Nahi Hai, Teri Kismat footi')
+else:
+   print('You Lose')
